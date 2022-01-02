@@ -17,13 +17,13 @@ navContactDeatils.innerHTML =
             <i class="fas fa-phone"></i> + 01 8052616871
           </a >
           <span> | </span>
-          <a href="mailto:vsptechreddy@gmail.com">
-            <i class="fas fa-envelope"></i> vsptechreddy@gmail.com
+          <a href="mailto:info@lighteningservices.com">
+            <i class="fas fa-envelope"></i> info@lighteningservices.com
           </a>
         </div >`
 
 //remove phone and mail from navigation after scroll
-window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function () {
     if (window.pageYOffset > 150) {
         headerContact.classList.add('hidden')
     } else {
@@ -32,7 +32,7 @@ window.addEventListener("scroll", function() {
 });
 
 //show/hide nav-links and nav-button on window resize
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
     if (window.innerWidth >= 769) {
         navLinks.classList.remove('hidden');
         navBtn.style.display = 'none';
@@ -43,7 +43,7 @@ window.addEventListener("resize", function() {
 })
 
 //show/hide nav-links and nav-button on screen load
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     if (window.innerWidth >= 769) {
         navLinks.classList.remove('hidden');
         navBtn.style.display = 'none';
@@ -54,19 +54,19 @@ window.addEventListener("load", function() {
 })
 
 //show sidebar in mobile/tablet mode
-navBtn.addEventListener('click', function() {
+navBtn.addEventListener('click', function () {
     sidebar.classList.add('show-sidebar');
 })
 
 
 //hide navbar in mobile/tablet mode
-closeBtn.addEventListener('click', function() {
+closeBtn.addEventListener('click', function () {
     sidebar.classList.remove('show-sidebar');
 })
 
 //add event listner to hide sidebar when clicked on link in mobile/tablet mode
 for (let i = 0; i < sidebarLink.length; i++) {
-    sidebarLink[i].addEventListener('click', function() {
+    sidebarLink[i].addEventListener('click', function () {
         sidebar.classList.remove('show-sidebar');
     })
 }

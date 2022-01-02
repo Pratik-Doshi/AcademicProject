@@ -1,12 +1,12 @@
 let submitEnableFlag = false;
 let map;
-let lattitude = 34.289051;
-let longitude = -118.713417;
-$(document).ready(function() {
+let lattitude = 32.779100;
+let longitude = -96.797710;
+$(document).ready(function () {
     document.getElementById("submitButton").disabled = true;
     document.getElementById("submitButton").style.background = 'grey';
 
-    $("#fname[type=text]").blur(function() {
+    $("#fname[type=text]").blur(function () {
         this.value = this.value.trim();;
         if (this.value == "" || this.value.length < 3 || !isNaN(this.value) || !validateText(this.value)) {
             document.getElementById("fnameError").innerText = "Please enter valid first name";
@@ -17,7 +17,7 @@ $(document).ready(function() {
         }
         checkDisable();
     });
-    $("#lname[type=text]").blur(function() {
+    $("#lname[type=text]").blur(function () {
         this.value = this.value.trim();;
         if (this.value == "" || this.value.length < 3 || !isNaN(this.value) || !validateText(this.value)) {
             document.getElementById("lnameError").innerText = "Please enter valid last name";
@@ -28,7 +28,7 @@ $(document).ready(function() {
         }
         checkDisable();
     });
-    $("#state[type=text]").blur(function() {
+    $("#state[type=text]").blur(function () {
         this.value = this.value.trim();;
         if (this.value == "" || this.value.length < 3 || !isNaN(this.value) || !validateText(this.value)) {
             document.getElementById("stateError").innerText = "Please enter valid state name";
@@ -39,7 +39,7 @@ $(document).ready(function() {
         }
         checkDisable();
     });
-    $("#phone[type=text]").blur(function() {
+    $("#phone[type=text]").blur(function () {
         this.value = this.value.trim();
         if (this.value == "" || this.value.length < 10 || !isNaN(this.value) || !validateNumber(this.value)) {
             document.getElementById("phoneError").innerText = "Please enter valid phone number";
@@ -50,13 +50,13 @@ $(document).ready(function() {
         }
         checkDisable();
     });
-    $("#email[type=email]").blur(function() {
+    $("#email[type=email]").blur(function () {
         this.value = this.value.trim();
         validateTheEmail(this.value);
         checkDisable();
     });
 
-    $("#clearButton").click(function() {
+    $("#clearButton").click(function () {
         document.getElementById("fnameError").innerText = "";
         document.getElementById("lnameError").innerText = "";
         document.getElementById("stateError").innerText = "";
@@ -66,46 +66,10 @@ $(document).ready(function() {
         document.getElementById("submitButton").style.background = 'grey';
     });
 
-    $("#submitButton").click(function() {
-        const CONTACT_API_URL = 'https://9wsb37fxok.execute-api.us-east-1.amazonaws.com/vsptech/vsptech_email';
-        const CONTACT_API_REQUEST_HEADERS = {
-            "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-            "Accept": "*/*",
-            "Content-Type": "application/json"
-                //"x-api-key": "y66xzEU4jL6QhPCmv6cxo66gRu9frAfO1fcJGQBt"
-        };
-
-        // Object for examples
-        const data_in = {
-            first_name: document.getElementById("fname").value,
-            last_name: document.getElementById("lname").value,
-            country: document.getElementById("country").value,
-            state: document.getElementById("state").value,
-            phone_number: document.getElementById("phone").value,
-            email: document.getElementById("email").value,
-            subject: document.getElementById("subject").value
-        };
-        // Making a POST request using an axios instance from a connected library
-        axios.post(CONTACT_API_URL, data_in, { headers: CONTACT_API_REQUEST_HEADERS })
-            // Handle a successful response from the server
-            .then(response => {
-                // Getting a data object from response that contains the necessary data from the server
-                const data = response.data;
-                if (data == "Sucess") {
-                    document.getElementById("submitError").innerText = "Thanks for writing to us. Our Team will reach you out..";
-                    $("#clearButton").click();
-                }
-
-            })
-            // Catch and print errors if any
-            .catch(error => console.error('On create student error', error));
-
+    $("#submitButton").click(function () {
+        document.getElementById("submitError").innerText = "Thanks for writing to us. Our Team will reach you out..";
     });
-    // $("#address").mouseover(function() {
-    //     lattitude = 34.289051;
-    //     longitude = -118.713417;
-    //     initMap();
-    // });
+
 });
 
 
@@ -163,15 +127,8 @@ function initMap() {
     new google.maps.Marker({
         position: myLatLng,
         map,
-        title: "VSP TECH main branch",
+        title: "Lightening Services main branch",
 
     });
-    // const image =
-    //     "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
-    // const beachMarker = new google.maps.Marker({
-    //     position: myLatLng,
-    //     map,
-    //     icon: image,
-    //     title: "VSP TECH main branch",
-    // });
+
 }
